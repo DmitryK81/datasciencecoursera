@@ -1,0 +1,7 @@
+##Find object in XML file 
+
+library(XML)
+fileUrl3 <- "http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
+doc <- xmlTreeParse(fileUrl3,useInternal=TRUE)
+zipcode <- xpathSApply(rootNode,"//zipcode",xmlValue)
+sum(zipcode == "21231")
