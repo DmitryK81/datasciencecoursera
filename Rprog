@@ -11,7 +11,14 @@ sum(zipcode == "21231")
 fileUrl <- "https://data.baltimorecity.gov/api/views/dz54-2aru/rows.csv?accessType=DOWNLOAD"
 download.file(fileUrl, destfile = "./data/cameras.csv", method = "curl")
 
+
+## Download data from file
+
+dat2 <- read.csv("hw1_data.csv", header = TRUE)
+
+
 ##Time assesment for programm + расчет среднего
+
 race <- 1000
 ##func1 <- replicate(race, system.time(tapply(DT$pwgtp15,DT$SEX,mean)))
 ##func2 <- replicate(race, system.time({mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)}))
@@ -21,3 +28,4 @@ func4 <- replicate(race, system.time(DT[,mean(pwgtp15),by=SEX]))
 ##func2_av = cumsum(func2) / seq_along(func2)
 ##func3_av = cumsum(func3) / seq_along(func3)
 func4_av = cumsum(func4) / seq_along(func4)
+
